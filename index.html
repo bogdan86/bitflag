@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bitwise Flag Calculator</title>
+    <style>
+        html, body {
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            background-color: black;
+            color: azure;
+        }
+        #container {
+            width: 300px;
+            margin: 0 auto;
+        }
+        #container label {
+            display: block;
+            color: cyan;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <h3>Bitwise Flag Calculator</h3>
+        <div>
+            <label><input onclick="calculateBitwiseValue()" type="checkbox" value="1" class="flag"> 1</label>
+            <label><input onclick="calculateBitwiseValue()" type="checkbox" value="2" class="flag"> 2</label>
+            <label><input onclick="calculateBitwiseValue()" type="checkbox" value="4" class="flag"> 4</label>
+            <label><input onclick="calculateBitwiseValue()" type="checkbox" value="8" class="flag"> 8</label>
+            <label><input onclick="calculateBitwiseValue()" type="checkbox" value="16" class="flag"> 16</label>
+            <label><input onclick="calculateBitwiseValue()" type="checkbox" value="32" class="flag"> 32</label>
+            <label><input onclick="calculateBitwiseValue()" type="checkbox" value="64" class="flag"> 64</label>
+            <label><input onclick="calculateBitwiseValue()" type="checkbox" value="128" class="flag"> 128</label>
+        </div>
+        <p id="result"></p>
+    </div>
+
+    <script>
+        function calculateBitwiseValue() {
+            const flags = document.querySelectorAll('.flag:checked')
+            let result = 0
+
+            flags.forEach(flag => {
+                result |= parseInt(flag.value, 10)
+            })
+
+            document.getElementById('result').innerText = `Bitwise value: ${result}`
+        }
+        calculateBitwiseValue()
+    </script>
+</body>
+</html>
